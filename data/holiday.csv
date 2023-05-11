@@ -1,0 +1,246 @@
+Date,Holiday,year,dayofyear
+2015-01-01,New Year's Day,2015,1
+2015-01-19,Martin Luther King Jr. Day,2015,19
+2015-02-14,Valentine's Day,2015,45
+2015-02-16,Presidents' Day,2015,47
+2015-03-17,St. Patrick's Day,2015,76
+2015-04-05,Easter Sunday,2015,95
+2015-04-06,Easter Monday,2015,96
+2015-04-15,Tax Day,2015,105
+2015-05-05,Cinco de Mayo,2015,125
+2015-05-10,Mother's Day,2015,130
+2015-05-25,Memorial Day,2015,145
+2015-06-14,Flag Day,2015,165
+2015-06-19,Juneteenth,2015,170
+2015-06-21,Father's Day,2015,172
+2015-07-03,Independence Day (substitute),2015,184
+2015-07-04,Independence Day,2015,185
+2015-09-07,Labor Day,2015,250
+2015-10-12,Columbus Day,2015,285
+2015-10-31,Halloween,2015,304
+2015-11-03,Election Day,2015,307
+2015-11-11,Veterans Day,2015,315
+2015-11-26,Thanksgiving Day,2015,330
+2015-11-27,Black Friday,2015,331
+2015-12-24,Christmas Eve,2015,358
+2015-12-25,Christmas Day,2015,359
+2015-12-26,Day After Christmas Day,2015,360
+2015-12-31,New Year's Eve,2015,365
+2016-01-01,New Year's Day,2016,1
+2016-01-18,Martin Luther King Jr. Day,2016,18
+2016-02-14,Valentine's Day,2016,45
+2016-02-15,Presidents' Day,2016,46
+2016-03-17,St. Patrick's Day,2016,77
+2016-03-27,Easter Sunday,2016,87
+2016-03-28,Easter Monday,2016,88
+2016-04-18,Tax Day,2016,109
+2016-05-05,Cinco de Mayo,2016,126
+2016-05-08,Mother's Day,2016,129
+2016-05-30,Memorial Day,2016,151
+2016-06-14,Flag Day,2016,166
+2016-06-19,Father's Day,2016,171
+2016-06-19,Juneteenth,2016,171
+2016-07-04,Independence Day,2016,186
+2016-09-05,Labor Day,2016,249
+2016-10-10,Columbus Day,2016,284
+2016-10-31,Halloween,2016,305
+2016-11-08,Election Day (General Election),2016,313
+2016-11-11,Veterans Day,2016,316
+2016-11-24,Thanksgiving Day,2016,329
+2016-11-25,Black Friday,2016,330
+2016-12-24,Christmas Eve,2016,359
+2016-12-25,Christmas Day,2016,360
+2016-12-26,Christmas Day (substitute),2016,361
+2016-12-31,New Year's Eve,2016,366
+2017-01-01,New Year's Day,2017,1
+2017-01-02,New Year's Day (substitute),2017,2
+2017-01-16,Martin Luther King Jr. Day,2017,16
+2017-01-20,Inauguration Day,2017,20
+2017-02-14,Valentine's Day,2017,45
+2017-02-20,Presidents' Day,2017,51
+2017-03-17,St. Patrick's Day,2017,76
+2017-04-16,Easter Sunday,2017,106
+2017-04-17,Easter Monday,2017,107
+2017-04-18,Tax Day,2017,108
+2017-05-05,Cinco de Mayo,2017,125
+2017-05-14,Mother's Day,2017,134
+2017-05-29,Memorial Day,2017,149
+2017-06-14,Flag Day,2017,165
+2017-06-18,Father's Day,2017,169
+2017-06-19,Juneteenth,2017,170
+2017-07-04,Independence Day,2017,185
+2017-09-04,Labor Day,2017,247
+2017-10-09,Columbus Day,2017,282
+2017-10-31,Halloween,2017,304
+2017-11-07,Election Day,2017,311
+2017-11-10,Veterans Day (substitute),2017,314
+2017-11-11,Veterans Day,2017,315
+2017-11-23,Thanksgiving Day,2017,327
+2017-11-24,Black Friday,2017,328
+2017-12-24,Christmas Eve,2017,358
+2017-12-25,Christmas Day,2017,359
+2017-12-31,New Year's Eve,2017,365
+2018-01-01,New Year's Day,2018,1
+2018-01-15,Martin Luther King Jr. Day,2018,15
+2018-02-14,Valentine's Day,2018,45
+2018-02-19,Presidents' Day,2018,50
+2018-03-17,St. Patrick's Day,2018,76
+2018-04-01,Easter Sunday,2018,91
+2018-04-02,Easter Monday,2018,92
+2018-04-17,Tax Day,2018,107
+2018-05-05,Cinco de Mayo,2018,125
+2018-05-13,Mother's Day,2018,133
+2018-05-28,Memorial Day,2018,148
+2018-06-14,Flag Day,2018,165
+2018-06-17,Father's Day,2018,168
+2018-06-19,Juneteenth,2018,170
+2018-07-04,Independence Day,2018,185
+2018-09-03,Labor Day,2018,246
+2018-10-08,Columbus Day,2018,281
+2018-10-31,Halloween,2018,304
+2018-11-06,Election Day,2018,310
+2018-11-11,Veterans Day,2018,315
+2018-11-12,Veterans Day (substitute),2018,316
+2018-11-22,Thanksgiving Day,2018,326
+2018-11-23,Black Friday,2018,327
+2018-12-24,Christmas Eve,2018,358
+2018-12-25,Christmas Day,2018,359
+2018-12-31,New Year's Eve,2018,365
+2019-01-01,New Year's Day,2019,1
+2019-01-21,Martin Luther King Jr. Day,2019,21
+2019-02-14,Valentine's Day,2019,45
+2019-02-18,Presidents' Day,2019,49
+2019-03-17,St. Patrick's Day,2019,76
+2019-04-15,Tax Day,2019,105
+2019-04-21,Easter Sunday,2019,111
+2019-04-22,Easter Monday,2019,112
+2019-05-05,Cinco de Mayo,2019,125
+2019-05-12,Mother's Day,2019,132
+2019-05-27,Memorial Day,2019,147
+2019-06-14,Flag Day,2019,165
+2019-06-16,Father's Day,2019,167
+2019-06-19,Juneteenth,2019,170
+2019-07-04,Independence Day,2019,185
+2019-09-02,Labor Day,2019,245
+2019-10-14,Columbus Day,2019,287
+2019-10-31,Halloween,2019,304
+2019-11-05,Election Day,2019,309
+2019-11-11,Veterans Day,2019,315
+2019-11-28,Thanksgiving Day,2019,332
+2019-11-29,Black Friday,2019,333
+2019-12-24,Christmas Eve,2019,358
+2019-12-24,Christmas Eve,2019,358
+2019-12-25,Christmas Day,2019,359
+2019-12-31,New Year's Eve,2019,365
+2020-01-01,New Year's Day,2020,1
+2020-01-20,Martin Luther King Jr. Day,2020,20
+2020-02-14,Valentine's Day,2020,45
+2020-02-17,Presidents' Day,2020,48
+2020-03-03,Super Tuesday,2020,63
+2020-03-17,St. Patrick's Day,2020,77
+2020-04-12,Easter Sunday,2020,103
+2020-04-13,Easter Monday,2020,104
+2020-05-05,Cinco de Mayo,2020,126
+2020-05-10,Mother's Day,2020,131
+2020-05-25,Memorial Day,2020,146
+2020-06-14,Flag Day,2020,166
+2020-06-19,Juneteenth,2020,171
+2020-06-21,Father's Day,2020,173
+2020-07-03,Independence Day (substitute),2020,185
+2020-07-04,Independence Day,2020,186
+2020-07-15,Tax Day,2020,197
+2020-09-07,Labor Day,2020,251
+2020-10-12,Columbus Day,2020,286
+2020-10-31,Halloween,2020,305
+2020-11-03,Election Day (General Election),2020,308
+2020-11-11,Veterans Day,2020,316
+2020-11-26,Thanksgiving Day,2020,331
+2020-11-27,Black Friday,2020,332
+2020-12-24,Christmas Eve,2020,359
+2020-12-24,Christmas Eve,2020,359
+2020-12-25,Christmas Day,2020,360
+2020-12-31,New Year's Eve,2020,366
+2021-01-01,New Year's Day,2021,1
+2021-01-18,Martin Luther King Jr. Day,2021,18
+2021-01-20,Inauguration Day,2021,20
+2021-02-14,Valentine's Day,2021,45
+2021-02-15,Presidents' Day,2021,46
+2021-03-17,St. Patrick's Day,2021,76
+2021-04-04,Easter Sunday,2021,94
+2021-04-05,Easter Monday,2021,95
+2021-05-05,Cinco de Mayo,2021,125
+2021-05-09,Mother's Day,2021,129
+2021-05-17,Tax Day,2021,137
+2021-05-31,Memorial Day,2021,151
+2021-06-14,Flag Day,2021,165
+2021-06-18,Juneteenth (substitute),2021,169
+2021-06-19,Juneteenth,2021,170
+2021-06-20,Father's Day,2021,171
+2021-07-04,Independence Day,2021,185
+2021-07-05,Independence Day (substitute),2021,186
+2021-09-06,Labor Day,2021,249
+2021-10-11,Columbus Day,2021,284
+2021-10-31,Halloween,2021,304
+2021-11-02,Election Day,2021,306
+2021-11-11,Veterans Day,2021,315
+2021-11-25,Thanksgiving Day,2021,329
+2021-11-26,Black Friday,2021,330
+2021-12-24,Christmas Day (substitute),2021,358
+2021-12-24,Christmas Eve,2021,358
+2021-12-25,Christmas Day,2021,359
+2021-12-31,New Year's Day (substitute),2021,365
+2021-12-31,New Year's Eve,2021,365
+2022-01-01,New Year's Day,2022,1
+2022-01-17,Martin Luther King Jr. Day,2022,17
+2022-02-14,Valentine's Day,2022,45
+2022-02-21,Presidents' Day,2022,52
+2022-03-17,St. Patrick's Day,2022,76
+2022-04-17,Easter Sunday,2022,107
+2022-04-18,Easter Monday,2022,108
+2022-04-18,Tax Day,2022,108
+2022-05-05,Cinco de Mayo,2022,125
+2022-05-08,Mother's Day,2022,128
+2022-05-30,Memorial Day,2022,150
+2022-06-14,Flag Day,2022,165
+2022-06-19,Father's Day,2022,170
+2022-06-19,Juneteenth,2022,170
+2022-06-20,Juneteenth (substitute),2022,171
+2022-07-04,Independence Day,2022,185
+2022-09-05,Labor Day,2022,248
+2022-10-10,Columbus Day,2022,283
+2022-10-31,Halloween,2022,304
+2022-11-08,Election Day,2022,312
+2022-11-11,Veterans Day,2022,315
+2022-11-24,Thanksgiving Day,2022,328
+2022-11-25,Black Friday,2022,329
+2022-12-24,Christmas Eve,2022,358
+2022-12-25,Christmas Day,2022,359
+2022-12-26,Christmas Day (substitute),2022,360
+2022-12-31,New Year's Eve,2022,365
+2023-01-01,New Year's Day,2023,1
+2023-01-02,New Year's Day (substitute),2023,2
+2023-01-16,Martin Luther King Jr. Day,2023,16
+2023-02-14,Valentine's Day,2023,45
+2023-02-20,Presidents' Day,2023,51
+2023-03-17,St. Patrick's Day,2023,76
+2023-04-09,Easter Sunday,2023,99
+2023-04-10,Easter Monday,2023,100
+2023-04-18,Tax Day,2023,108
+2023-05-05,Cinco de Mayo,2023,125
+2023-05-14,Mother's Day,2023,134
+2023-05-29,Memorial Day,2023,149
+2023-06-14,Flag Day,2023,165
+2023-06-18,Father's Day,2023,169
+2023-06-19,Juneteenth,2023,170
+2023-07-04,Independence Day,2023,185
+2023-09-04,Labor Day,2023,247
+2023-10-09,Columbus Day,2023,282
+2023-10-31,Halloween,2023,304
+2023-11-07,Election Day,2023,311
+2023-11-10,Veterans Day (substitute),2023,314
+2023-11-11,Veterans Day,2023,315
+2023-11-23,Thanksgiving Day,2023,327
+2023-11-24,Black Friday,2023,328
+2023-12-24,Christmas Eve,2023,358
+2023-12-25,Christmas Day,2023,359
+2023-12-31,New Year's Eve,2023,365
