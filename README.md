@@ -14,7 +14,7 @@ base_score=0.5, booster='gbtree',
                                     random_state =0 --- cali
 
 
-
+width={'size': 5, 'offset': 4}
 
 1849 lamda = 50
 
@@ -61,3 +61,23 @@ reg = xgb.XGBRegressor(base_score=0.5, booster='gbtree',
                                     colsample_bynode = 0.7,
                                     random_state =0,
                                     eval_metric =['rmse', 'mae'])-938 ny
+
+
+TX_params = {
+    "base_score": 0.5,
+    "booster": "gbtree",
+    "n_estimators": 8000,
+    "early_stopping_rounds": 100,
+    "max_depth": 10,
+    "learning_rate": 0.009,
+    "subsample": .9,
+    "reg_lambda": 15,
+    "reg_alpha": 20,
+    "min_split_loss": 10,
+    "min_child_weight": 10,
+    "colsample_bytree": .8,
+    "colsample_bylevel": .8,
+    "colsample_bynode": 1,
+    "random_state": 0,
+    "eval_metric": ['rmse','mae']
+}
