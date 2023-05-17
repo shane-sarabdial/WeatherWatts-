@@ -2,9 +2,16 @@ import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 from flask_caching import Cache
+import plotly.io as pio
+import pymssql
+from config import database
+from config import table
+from config import username
+from config import password
+from config import serverdb
+pio.templates.default = "plotly_white"
 
-
-app = dash.Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.LUX])
+app = dash.Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.FLATLY])
 server = app.server
 cache = Cache(app.server, config={
     'CACHE_TYPE': 'filesystem',
