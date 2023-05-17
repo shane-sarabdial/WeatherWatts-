@@ -5,8 +5,13 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.io as pio
 import plotly.graph_objects as go
+import pymssql
+from config import database
+from config import username
+from config import password
+from config import serverdb
 
-pio.templates.default = "seaborn"
+template = pio.templates.default = "plotly"
 import pickle
 from datetime import date
 import datetime
@@ -22,7 +27,7 @@ cache = Cache(app.server, config={
     'CACHE_TYPE': 'filesystem',
     'CACHE_DIR': 'cache-directory'
 })
-TIMEOUT = 300
+TIMEOUT = 120
 
 # page 2 data
 df = pd.read_parquet('Data/TX/texas_df.parquet')
@@ -33,6 +38,7 @@ fig1.update_layout(title=dict(
     yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts', title_font_size=15),
     xaxis=dict(tickfont_size=13, title_font_size=20, title='Hour'),
     margin=dict(t=33, b=20, r=20),
+    template =template
 )
 
 
@@ -47,6 +53,7 @@ def create_scatter():
         xaxis=dict(title='Period', title_font_size=25,tickfont_size=15,),
         yaxis=dict(title='Demand in Megawatt Hours', title_font_size=25, tickfont_size=15,),
         margin=dict(t=50, b=50,),
+        template =template
     )
     return fig2
 
@@ -58,22 +65,46 @@ fi = pd.DataFrame(data=model.feature_importances_,
                   index=model.feature_name_,
                   columns=['importance'])
 fi = fi.sort_values('importance', ascending=False)[:20]
-fig3 = px.bar(fi, y=fi.index, x='importance', log_x=True, title='Top 20 Important Features')
+fig3 = px.bar(fi, y=fi.index, x='importance', log_x=False, title='Top 20 Important Features')
 fig3.update_layout(
         title=dict(font_size=20, x=0.8),
-        xaxis=dict(title='Gain', title_font_size=18),
+        xaxis=dict(title='Importance', title_font_size=18),
         yaxis=dict(title='Features', title_font_size=18),
         margin=dict(t=30, b=20, r=20),
+        template =template
     )
 
 week = ['2021-11-2', '2021-11-9']
 df2 = df.loc[(df.index > week[0]) & (df.index < week[1])][['Actual', 'Prediction']]
-fig4 = px.line(data_frame=df2, x=df2.index, y=['Actual', 'Prediction'], title='One Week of Data')
+fig4 = px.line(data_frame=df2, x=df2.index, y=['Actual', 'Prediction'], title='One Week of Data', markers=True)
 fig4.update_layout(title=dict(
     font_size=20, x=0.45),
     yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
     xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
-    margin=dict(t=38, b=20))
+    margin=dict(t=38, b=20),
+    template =template)
+
+def get_data_sql():
+    conn = pymssql.connect(serverdb,username, password, database)
+    cursor = conn.cursor()
+    query = """SELECT TOP (72) *
+            FROM dbo.future_data__TX
+            ORDER BY [DATE] DESC"""
+    df = pd.read_sql(query, conn)
+    df.index = pd.to_datetime(df.Date)
+    df = df.drop(['State','Date'], axis=1)
+    df = df.sort_index()
+    return df
+
+TX_pred = get_data_sql()
+TX_pred['pred'] = model.predict(TX_pred)
+fig5 = px.line(data_frame=TX_pred, x=TX_pred.index, y='pred',title='Predicting Demand in 3 Days')
+fig5.update_layout(title=dict(
+    font_size=20, x=0.45),
+    yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
+    xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
+    margin=dict(t=38, b=20),
+    template =template)
 
 
 layout = html.Div(
@@ -81,7 +112,7 @@ layout = html.Div(
         dbc.Row([
             dbc.Col(
                 [
-                    html.H1('ERco'),
+                    html.H1('ERCO'),
                     html.P('fdsfdfd'),
                     html.H2('Model Performance'),
                     html.P('MAE score, rsme'),
@@ -153,8 +184,8 @@ layout = html.Div(
             ),
             dbc.Col(
                 [
-                    dcc.Graph(id='main',
-                              figure={})
+                    dcc.Graph(id='future',
+                              figure=fig5, style={'width': '40vw', 'height': '50vh'})
                 ], width={'size': 5, 'offset': 1},
             )
         ]),
@@ -174,7 +205,8 @@ def update_graph(value, opt):
         font_size=20, x=0.55),
         yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
         xaxis=dict(tickfont_size=13, title=label, title_font_size=20),
-    margin=dict(t=33, b=20, r=20),
+        margin=dict(t=33, b=20, r=20),
+        template =template
                     )
     return fig1
 
@@ -188,10 +220,11 @@ def update_week(date_enter):
     oneWeek = datetime.timedelta(weeks=1)
     new_date = aDate + oneWeek
     tx2 = df.loc[(df.index > date_enter) & (df.index < new_date)][['Actual', 'Prediction']]
-    fig4 = px.line(data_frame=tx2, x=tx2.index, y=['Actual', 'Prediction'], title='One Week of Data')
+    fig4 = px.line(data_frame=tx2, x=tx2.index, y=['Actual', 'Prediction'], title='One Week of Data', markers=True)
     fig4.update_layout(title=dict(
         font_size=20, x=0.45),
         yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
         xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
-        margin=dict(t=38, b=20))
+        margin=dict(t=38, b=20),
+        template =template)
     return fig4
