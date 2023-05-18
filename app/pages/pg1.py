@@ -14,7 +14,7 @@ dash.register_page(__name__,
                    )
 
 # page 1 data
-geo = pd.read_csv(R'C:\Users\shane\Desktop\Dev\Capstone\WeatherWatts-\app\Data\geo3.csv')
+geo = pd.read_csv(r'app\Data\geo3.csv')
 
 geo_year = geo.query('Year == 2015')
 fig_geo = px.scatter_mapbox(geo_year, lat='Lat', lon='Long', title="Temperature by City From 2015 to 2023",
