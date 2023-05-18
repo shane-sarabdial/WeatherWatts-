@@ -11,3 +11,5 @@ edited
 - explain etl process - 3
 - EDA process - 8
 - dash - 2
+
+(Final Pipeline.png)
