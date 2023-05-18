@@ -12,4 +12,4 @@ edited
 - EDA process - 8
 - dash - 2
 
-(Final Pipeline.png)
+[Image](Images/Final Pipeline.png)
