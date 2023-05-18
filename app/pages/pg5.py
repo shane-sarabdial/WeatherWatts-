@@ -30,7 +30,7 @@ cache = Cache(app.server, config={
 TIMEOUT = 240
 
 # page 2 data
-df_ca = pd.read_parquet('Data/CA/CA_df.parquet')
+df_ca = pd.read_parquet(r'app\Data\CA\CA_df.parquet')
 df_ca.rename(columns={'value': 'Actual', 'prediction': 'Prediction'}, inplace=True)
 fig1_ca = px.box(df_ca, x='hour', y='Actual', title='Range of Energy Demand by Hour',
                  color_discrete_sequence=['rgb(95, 70, 144)'])
@@ -60,7 +60,7 @@ def create_scatter():
     return fig2_ca
 
 
-filename = R'Data\CA\model_CA.pkl'
+filename = R'app\Data\CA\model_CA.pkl'
 with open(filename, 'rb') as f:
     model = pickle.load(f)
 fi_ca = pd.DataFrame(data=model.feature_importances_,
