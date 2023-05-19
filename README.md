@@ -1,8 +1,26 @@
-# WeatherWatts
+# Predicting Energy Demand
 
-edited
+## Authors
 
+Edward Oh | Islam Orabi | Shane Sarabdial
+
+## Table of Contents
+
+- [Introduction]()
+- Data Sources
+- Data Proccesing and ETL
+- Visualizations
+- Results
+- Resources
+-
+
+## Introduction
+
+dgfgdf
+
+-
 - intro
+-
 - motivation
 - What is an ISO -map
 - What is XLE
@@ -13,3 +31,5 @@ edited
 - dash - 2
 
 ![test](/Images/FinalPipeline.png)
+
+###### dfddf
