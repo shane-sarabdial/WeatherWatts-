@@ -6,7 +6,7 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 
 ## Table of Contents
 
-- [Introduction]()
+- [Introduction](#introduction)
 - Data Sources
 - Data Proccesing and ETL
 - Visualizations
