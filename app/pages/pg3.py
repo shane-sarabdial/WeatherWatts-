@@ -6,21 +6,23 @@ import pandas as pd
 import plotly.io as pio
 import plotly.graph_objects as go
 import pymssql
-from config import database
-from config import username
-from config import password
-from config import serverdb
-
 template = pio.templates.default = "plotly_white"
 import pickle
 from datetime import date
 import datetime
 from flask_caching import Cache
+from dotenv import load_dotenv
+import os
+load_dotenv()
+database = os.environ.get('database')
+username = os.environ.get('username_watts')
+password = os.environ.get('password')
+serverdb = os.environ.get('serverdb')
 
 dash.register_page(__name__,
                    path='/newyork',  # represents the url text
-                   name='NewYork',  # name of page, commonly used as name of link
-                   title='New York'  # epresents the title of browser's tab
+                   name='New York',  # name of page, commonly used as name of link
+                   title='NewYork'  # epresents the title of browser's tab
                    )
 app = dash.get_app()
 cache = Cache(app.server, config={
@@ -51,7 +53,7 @@ def create_scatter():
 
     # Update the layout
     fig2_ny.update_layout(
-        title=dict(font_size=30),
+        title=dict(font_size=30, x=0.5),
         xaxis=dict(title='Period', title_font_size=25, tickfont_size=15, ),
         yaxis=dict(title='Demand in Megawatt Hours', title_font_size=25, tickfont_size=15, ),
         margin=dict(t=50, b=50, ),
@@ -70,7 +72,7 @@ fi_ny = fi_ny.sort_values('importance', ascending=False)[:20]
 fig3_ny = px.bar(fi_ny, y=fi_ny.index, x='importance', log_x=False, title='Top 20 Important Features',
                  color_discrete_sequence=['rgb(56, 166, 165)'])
 fig3_ny.update_layout(
-    title=dict(font_size=20, x=0.8),
+    title=dict(font_size=20, x=0.5),
     xaxis=dict(title='Importance', title_font_size=18),
     yaxis=dict(title='Features', title_font_size=18),
     margin=dict(t=30, b=20, r=20),
@@ -82,7 +84,7 @@ df2_ny = df_ny.loc[(df_ny.index > week[0]) & (df_ny.index < week[1])][['Actual',
 fig4_ny = px.line(data_frame=df2_ny, x=df2_ny.index, y=['Actual', 'Prediction'], title='One Week of Data',
                   color_discrete_map={"Actual": 'rgb(29, 105, 150)', "Prediction": 'rgb(204, 80, 62)'})
 fig4_ny.update_layout(title=dict(
-    font_size=20, x=0.45),
+    font_size=20, x=0.5),
     yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
     xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
     margin=dict(t=38, b=20),
@@ -107,7 +109,7 @@ NY_pred['pred'] = model.predict(NY_pred)
 fig5_ny = px.line(data_frame=NY_pred, x=NY_pred.index, y='pred', title='Predicting Demand in 3 Days',
                   color_discrete_sequence=['rgb(225, 124, 5)'])
 fig5_ny.update_layout(title=dict(
-    font_size=20, x=0.45),
+    font_size=20, x=0.5),
     yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
     xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
     margin=dict(t=38, b=20),
@@ -118,28 +120,27 @@ layout = html.Div(
         dbc.Row([
             dbc.Col(
                 [
-                    html.H1('ERCOT'),
-                    dcc.Markdown("""The Electric Reliability Council of Texas [(ERCOT)](https://www.ercot.com/about) 
-                    is an independent system operator (ISO) for the state of Texas. They supply power to about 90% of
-                     the states population. """),
-                    # html.P('The Electric Reliability Council of Texas (ERCOT)'),
+                    html.H1('NYSIO'),
+                    dcc.Markdown("""The New York Independent System Operator [(NYSIO)](https://www.nyiso.com/) delivers
+                    power to 19.6 million New Yorkers and manages the competitive wholesale electric marketplace for 
+                    New York."""),
                     html.H2('Model Performance'),
-                    dcc.Markdown("""The Root Mean Square Error (RMSE) and Mean Absolute Error (MAE) were 3484.53 and 
-                    2606.52 respectively. From the graphs we can see that the model is under-predicting on average 
-                    about ~3000  megawatt hours. 
+                    dcc.Markdown("""The Root Mean Square Error (RMSE) and Mean Absolute Error (MAE) were 872.44 and 
+                    638.80 respectively. From the graphs we can see that the model performs well on average. The 
+                    temperature and hour of the day  play a major part in the models performance.
                       """),
-                ], width={'size': 10, 'offset': 1},
+                ], xs=12, sm=12, md=12, lg=10, xl=10, xxl=10,
             ),
-        ], ),
+        ], justify='around'),
         html.Br(),
         dbc.Row([
             dbc.Col(
                 [
                     dcc.Graph(id='prediction_ny',
                               figure=create_scatter(), style={'width': '82vw', 'height': '60vh'})
-                ], width={'size': 9, 'offset': 1},
+                ], xs=12, sm=12, md=12, lg=10, xl=10, xxl=10,
             ),
-        ], ),
+        ], justify='around'),
         html.Br(),
         dbc.Row([
             dbc.Col(
@@ -154,7 +155,7 @@ layout = html.Div(
                                  style=dict(border='1px solid black', width='100%', )
                                  )
 
-                ], width={'size': 3, 'offset': 2},
+                ], xs=12, sm=12, md=10, lg=3, xl=3, xxl=3,
             ),
             dbc.Col(
                 [
@@ -168,39 +169,39 @@ layout = html.Div(
                                          min_date_allowed=date(2021, 11, 2),
                                          max_date_allowed=date(2023, 4, 29),
                                          style=dict(border='2px solid black', width='68.5%', ), )
-                ], width={'size': 3, 'offset': 3}, className="text-center",
+                ], xs=12, sm=12, md=10, lg=3, xl=3, xxl=3, className="text-center",
             ),
-        ], style={'align-items': 'center', 'display': 'flex', 'justify-content': 'center'}),
+        ], justify='around', style={'align-items': 'center', 'display': 'flex', 'justify-content': 'center'}),
         dbc.Row([
             dbc.Col(
                 [
                     dcc.Graph(id='freq_box_ny',
                               figure=fig1_ny, style={'width': '40vw', 'height': '50vh'})
-                ], width={'size': 5, 'offset': 1}
+                ], xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
             ),
             dbc.Col(
                 [
                     dcc.Graph(id='week_ny',
                               figure=fig4_ny, style={'width': '40vw', 'height': '50vh'})
-                ], width={'size': 5, 'offset': 1}
+                ], xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
             ),
-        ]),
+        ], justify='around'),
         html.Br(),
         dbc.Row([
             dbc.Col(
                 [
                     dcc.Graph(id='fi_ny',
                               figure=fig3_ny, style={'width': '40vw', 'height': '50vh'})
-                ], width={'size': 5, 'offset': 1}
+                ], xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
 
             ),
             dbc.Col(
                 [
                     dcc.Graph(id='future_ny',
                               figure=fig5_ny, style={'width': '40vw', 'height': '50vh'})
-                ], width={'size': 5, 'offset': 1},
+                ], xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
             )
-        ]),
+        ], justify='around'),
     ])
 
 
@@ -215,7 +216,7 @@ def update_graph(value, opt):
     fig1_ny = px.box(df_ny, x=value, y='Actual', title=f'Range of Energy Demand by {label}',
                   color_discrete_sequence=['rgb(95, 70, 144)'])
     fig1_ny.update_layout(title=dict(
-        font_size=20, x=0.55),
+        font_size=20, x=0.5),
         yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
         xaxis=dict(tickfont_size=13, title=label, title_font_size=20),
         margin=dict(t=33, b=20, r=20),
@@ -236,7 +237,7 @@ def update_week(date_enter):
     fig4ny = px.line(data_frame=ny2, x=ny2.index, y=['Actual', 'Prediction'], title='One Week of Data',
                    color_discrete_map={"Actual": 'rgb(29, 105, 150)', "Prediction": 'rgb(204, 80, 62)'})
     fig4ny.update_layout(title=dict(
-        font_size=20, x=0.45),
+        font_size=20, x=0.5),
         yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
         xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
         margin=dict(t=38, b=20),
