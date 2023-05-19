@@ -60,7 +60,7 @@ def create_scatter():
     return fig2_ny
 
 
-filename = R'app\Data\NY\NY_df.parquet'
+filename = R'app\Data\NY\model_NY.pkl'
 with open(filename, 'rb') as f:
     model = pickle.load(f)
 fi_ny = pd.DataFrame(data=model.feature_importances_,
