@@ -32,7 +32,7 @@ cache = Cache(app.server, config={
 TIMEOUT = 240
 
 # page 2 data
-df = pd.read_parquet('Data/TX/texas_df.parquet')
+df = pd.read_parquet(r'app\Data\TX\texas_df.parquet')
 df.rename(columns={'value': 'Actual', 'prediction': 'Prediction'}, inplace=True)
 fig1 = px.box(df, x='hour', y='Actual', title='Range of Energy Demand by Hour',
               color_discrete_sequence=['rgb(95, 70, 144)'])
@@ -62,7 +62,7 @@ def create_scatter():
     return fig2
 
 
-filename = R'Data\TX\model_TX.pkl'
+filename = R'app\Data\TX\model_TX.pkl'
 with open(filename, 'rb') as f:
     model = pickle.load(f)
 fi = pd.DataFrame(data=model.feature_importances_,

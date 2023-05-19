@@ -15,8 +15,10 @@ dash.register_page(__name__,
                    )
 
 # page 1 data
+
 iso = pd.read_csv('./Data/iso.csv')
 geo = pd.read_csv('./Data/geo3.csv')
+
 
 fig_iso = px.choropleth(iso, locations="State",
                         color="ISO",  # lifeExp is a column of gapminder
