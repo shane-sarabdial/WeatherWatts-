@@ -10,7 +10,7 @@ We have 2 ETL proccess. Our 1st procces is used to get training and testing data
 
 ![](Images/FinalPipeline.png)
 ## Table of Contents
-1. [Extract Training/Testing Data](#extract-training/testing-data)
+1. [Extract Training/Testing Data](#extract-training-and-testing-data)
 ## Data Source
 
 ---
@@ -35,7 +35,7 @@ You can find exact steps to the ETL in the following notebooks.
 5. [Kafka Producer](https://github.com/shane-sarabdial/WeatherWatts-/blob/main/ETL/ETL_Prediction%20Data/Prediction%20Data%20and%20Producer.ipynb)
 6. [Kafka Consumer and SQL Load](https://github.com/shane-sarabdial/WeatherWatts-/blob/main/ETL/ETL_Prediction%20Data/Future%20Consumer%20and%20upload%20to%20SQL.ipynb)
 
-## Extract Training/Testing Data
+## Extract Training and Testing Data
 
 ---
 
