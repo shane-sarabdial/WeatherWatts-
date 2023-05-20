@@ -11,6 +11,11 @@ We have 2 ETL proccess. Our 1st procces is used to get training and testing data
 ![](Images/FinalPipeline.png)
 ## Table of Contents
 1. [Extract Training/Testing Data](#extract-training-and-testing-data)
+2. [Transform Training/Testing Data](#transform-training-and-testing-data)
+3. [Load Training/Testing Data](#load-training-and-testing-data)
+4. [Extract Prediction Data](#extract-prediction-data)
+5. [Transform Prediction Data](#Transform-prediction-data)
+6. [Load Prediction Data](#Load-prediction-data)
 ## Data Source
 
 ---
@@ -125,7 +130,7 @@ df2 = df2.drop('stations')
 
 12. This is our intial extraction and transformation. Now that the heavy lifting has been done in pyspark we will export the 3 dataframes we have to a storage blob where they will be brought into our local enviornment to perform transformations. Since the data is still large exporting them as a parquet file is recommended. The parquet file will compress the data making it easier to transfer.
 
-## Transform Training/Testing Data
+## Transform Training and Testing Data
 
 ---
 
@@ -245,7 +250,7 @@ CA.dropna(inplace=True)
 TX.dropna(inplace=True)
 ```
 
-## Load Training/Testing Data
+## Load Training and Testing Data
 
 ---
 
