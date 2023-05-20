@@ -12,7 +12,6 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 - Visualizations
 - Results
 - Resources
--
 
 ## Introduction
 
