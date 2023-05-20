@@ -6,7 +6,7 @@
 
 ---
 
-We have 2 ETL proccess. Our 1st procces is used to get training and testing data to use for ML. Our second process is to get live data that we will feed into our final ML model to make predictions.
+We have 2 ETL proccess. Our first procces is used to get training and testing data to use for ML. Our second process is to get live data that we will feed into our final ML model to make predictions.
 
 ![](Images/FinalPipeline.png)
 ## Table of Contents
