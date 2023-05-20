@@ -20,7 +20,7 @@ We have 2 ETL proccess. Our 1st procces is used to get training and testing data
 
 ---
 
-All data used can be accessed in the [data](https://github.com/shane-sarabdial/WeatherWatts-/tree/main/data) Folder.
+All data used can be accessed in the [data](https://github.com/shane-sarabdial/WeatherWatts-/tree/main/data) Folder or clicking on the linked sites below.
 
 1. [EIA](https://www.eia.gov/opendata/browser/electricity/rto/region-data)
 2. [Weather](https://www.visualcrossing.com/)
