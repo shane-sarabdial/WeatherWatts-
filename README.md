@@ -37,6 +37,12 @@ dgfgdf
 
 
 ## Visualizations
+![Texas](/Images/Texas.png)
+-Info ABout Texas
+![Florida](/Images/Florida.png)
+-Infor about Florida
+![California](/Images/california.png)
+-Info about california
 
 
 ###### dfddf
