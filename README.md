@@ -7,11 +7,11 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 ## Table of Contents
 
 - [Introduction](#introduction)
-- Data Sources
-- Data Proccesing and ETL
-- Visualizations
+- [Data Sources](#Data Sources)
+- [Data Procesing and ETL](#Data Processing and ETL)
+- [Visualizations](#Visualizations)
 - Results
-- Resources
+- Resources??? same as data sources???
 
 ## Introduction
 
@@ -29,6 +29,14 @@ dgfgdf
 - EDA process - 8
 - dash - 2
 
-![test](/Images/FinalPipeline.png)
+## Data Sources
+
+## Data Processing and ETL
+
+![pipeline](/Images/FinalPipeline.png)
+
+
+## Visualizations
+
 
 ###### dfddf
