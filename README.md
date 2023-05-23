@@ -7,8 +7,8 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Data Sources](#Data Sources)
-- [Data Procesing and ETL](#Data Processing and ETL)
+- [Data Sources](#Data-Sources)
+- [Data Procesing and ETL](#Data-Processing-and-ETL)
 - [Visualizations](#Visualizations)
 - Results
 - Resources??? same as data sources???
