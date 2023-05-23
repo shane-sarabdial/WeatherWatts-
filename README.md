@@ -14,20 +14,21 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 - Resources??? same as data sources???
 
 ## Introduction
-
-dgfgdf
-
--
 - intro
--
+
+
 - motivation
+
+
 - What is an ISO -map
+
+
 - What is XLE
-- Data sources
-- explain ml model -4
-- explain etl process - 3
-- EDA process - 8
+
+
 - dash - 2
+
+
 
 ## Data Sources
 - [EIA](https://www.eia.gov/opendata/)
@@ -42,12 +43,23 @@ Static data was pulled from 4 different sources utilizing API, CSV downloads and
 
 
 ## Visualizations
+
 ![Texas](/Images/Texas.png)
--Info ABout Texas
+
 ![Florida](/Images/Florida.png)
--Infor about Florida
+
 ![California](/Images/california.png)
--Info about california
+
+## Machine Learning
 
 
-###### dfddf
+- LightGBM
+
+
+
+
+## References
+
+- [2021 Texas Winter Storm](https://environmentamerica.org/texas/center/articles/the-texas-freeze-timeline-of-events/)
+- [2017 Florida hurrican Irma](https://www.weather.gov/mfl/hurricaneirma)
+- [2022 California Heatwave](http://www.caiso.com/Documents/california-iso-posts-analysis-of-september-heat-wave.pdf)
