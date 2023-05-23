@@ -6,31 +6,33 @@ import pandas as pd
 import plotly.io as pio
 import plotly.graph_objects as go
 import pymssql
-from config import database
-from config import username
-from config import password
-from config import serverdb
-
 template = pio.templates.default = "plotly_white"
 import pickle
 from datetime import date
 import datetime
 from flask_caching import Cache
+from dotenv import load_dotenv
+import os
+load_dotenv()
+database = os.environ.get('database')
+username = os.environ.get('username_watts')
+password = os.environ.get('password')
+serverdb = os.environ.get('serverdb')
 
 dash.register_page(__name__,
                    path='/Texas',  # represents the url text
                    name='Texas',  # name of page, commonly used as name of link
-                   title='Texas'  # epresents the title of browser's tab
+                   title='texas'  # epresents the title of browser's tab
                    )
 app = dash.get_app()
 cache = Cache(app.server, config={
     'CACHE_TYPE': 'filesystem',
     'CACHE_DIR': 'cache-directory'
 })
-TIMEOUT = 10
+TIMEOUT = 240
 
 # page 2 data
-df = pd.read_parquet(r'app\Data\TX\texas_df.parquet')
+df = pd.read_parquet('./Data/TX/texas_df.parquet')
 df.rename(columns={'value': 'Actual', 'prediction': 'Prediction'}, inplace=True)
 fig1 = px.box(df, x='hour', y='Actual', title='Range of Energy Demand by Hour',
               color_discrete_sequence=['rgb(95, 70, 144)'])
@@ -51,7 +53,7 @@ def create_scatter():
 
     # Update the layout
     fig2.update_layout(
-        title=dict(font_size=30),
+        title=dict(font_size=30, x=0.5),
         xaxis=dict(title='Period', title_font_size=25, tickfont_size=15, ),
         yaxis=dict(title='Demand in Megawatt Hours', title_font_size=25, tickfont_size=15, ),
         margin=dict(t=50, b=50, ),
@@ -60,7 +62,7 @@ def create_scatter():
     return fig2
 
 
-filename = R'app\Data\TX\model_TX.pkl'
+filename = './Data/TX/model_TX.pkl'
 with open(filename, 'rb') as f:
     model = pickle.load(f)
 fi = pd.DataFrame(data=model.feature_importances_,
@@ -70,7 +72,7 @@ fi = fi.sort_values('importance', ascending=False)[:20]
 fig3 = px.bar(fi, y=fi.index, x='importance', log_x=False, title='Top 20 Important Features',
               color_discrete_sequence=['rgb(56, 166, 165)'])
 fig3.update_layout(
-    title=dict(font_size=20, x=0.8),
+    title=dict(font_size=20, x=0.5),
     xaxis=dict(title='Importance', title_font_size=18),
     yaxis=dict(title='Features', title_font_size=18),
     margin=dict(t=30, b=20, r=20),
@@ -82,7 +84,7 @@ df2 = df.loc[(df.index > week[0]) & (df.index < week[1])][['Actual', 'Prediction
 fig4 = px.line(data_frame=df2, x=df2.index, y=['Actual', 'Prediction'], title='One Week of Data',
                color_discrete_map={"Actual": 'rgb(29, 105, 150)', "Prediction": 'rgb(204, 80, 62)'})
 fig4.update_layout(title=dict(
-    font_size=20, x=0.45),
+    font_size=20, x=0.5),
     yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
     xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
     margin=dict(t=38, b=20),
@@ -107,7 +109,7 @@ TX_pred['pred'] = model.predict(TX_pred)
 fig5 = px.line(data_frame=TX_pred, x=TX_pred.index, y='pred', title='Predicting Demand in 3 Days',
                color_discrete_sequence=['rgb(225, 124, 5)'])
 fig5.update_layout(title=dict(
-    font_size=20, x=0.45),
+    font_size=20, x=0.5),
     yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
     xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
     margin=dict(t=38, b=20),
@@ -121,25 +123,29 @@ layout = html.Div(
                     html.H1('ERCOT'),
                     dcc.Markdown("""The Electric Reliability Council of Texas [(ERCOT)](https://www.ercot.com/about) 
                     is an independent system operator (ISO) for the state of Texas. They supply power to about 90% of
-                     the states population. """),
-                    # html.P('The Electric Reliability Council of Texas (ERCOT)'),
+                     the states population. ERCOT is the first ISO in the US. Their major source of energy comes
+                      from natural gas, wind, and coal resources"""),
                     html.H2('Model Performance'),
                     dcc.Markdown("""The Root Mean Square Error (RMSE) and Mean Absolute Error (MAE) were 3484.53 and 
                     2606.52 respectively. From the graphs we can see that the model is under-predicting on average 
                     about ~3000  megawatt hours. 
                       """),
-                ], width={'size': 10, 'offset': 1},
+                ],
+                # width={'size': 10, 'offset': 1},
+                xs=12, sm=12, md=12, lg=10, xl=10, xxl=10,
             ),
-        ], ),
+        ], justify='around'),
         html.Br(),
         dbc.Row([
             dbc.Col(
                 [
                     dcc.Graph(id='prediction',
                               figure=create_scatter(), style={'width': '82vw', 'height': '60vh'})
-                ], width={'size': 9, 'offset': 1},
+                ],
+                # width={'size': 9, 'offset': 1},
+                xs=12, sm=12, md=12, lg=10, xl=10, xxl=10,
             ),
-        ], ),
+        ], justify='around'),
         html.Br(),
         dbc.Row([
             dbc.Col(
@@ -154,7 +160,9 @@ layout = html.Div(
                                  style=dict(border='1px solid black', width='100%', )
                                  )
 
-                ], width={'size': 3, 'offset': 2},
+                ],
+                # width={'size': 3, 'offset': 2},
+                xs=12, sm=12, md=10, lg=3, xl=3, xxl=3,
             ),
             dbc.Col(
                 [
@@ -168,39 +176,49 @@ layout = html.Div(
                                          min_date_allowed=date(2021, 11, 2),
                                          max_date_allowed=date(2023, 4, 29),
                                          style=dict(border='2px solid black', width='68.5%', ), )
-                ], width={'size': 3, 'offset': 3}, className="text-center",
+                ],className="text-center",
+                # width={'size': 3, 'offset': 3},
+                xs=12, sm=12, md=10, lg=3, xl=3, xxl=3,
             ),
-        ], style={'align-items': 'center', 'display': 'flex', 'justify-content': 'center'}),
+        ], justify='around', style={'align-items': 'center', 'display': 'flex', 'justify-content': 'center'}),
         dbc.Row([
             dbc.Col(
                 [
                     dcc.Graph(id='freq_box',
                               figure=fig1, style={'width': '40vw', 'height': '50vh'})
-                ], width={'size': 5, 'offset': 1}
+                ],
+                # width={'size': 5, 'offset': 1}
+                xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
             ),
             dbc.Col(
                 [
                     dcc.Graph(id='week',
                               figure=fig4, style={'width': '40vw', 'height': '50vh'})
-                ], width={'size': 5, 'offset': 1}
+                ],
+                # width={'size': 5, 'offset': 1}
+                xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
             ),
-        ]),
+        ], justify='around'),
         html.Br(),
         dbc.Row([
             dbc.Col(
                 [
                     dcc.Graph(id='fi',
                               figure=fig3, style={'width': '40vw', 'height': '50vh'})
-                ], width={'size': 5, 'offset': 1}
+                ],
+                # width={'size': 5, 'offset': 1}
+                xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
 
             ),
             dbc.Col(
                 [
                     dcc.Graph(id='future',
                               figure=fig5, style={'width': '40vw', 'height': '50vh'})
-                ], width={'size': 5, 'offset': 1},
+                ],
+                # width={'size': 5, 'offset': 1},
+                xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
             )
-        ]),
+        ], justify='around'),
     ])
 
 
@@ -215,7 +233,7 @@ def update_graph(value, opt):
     fig1 = px.box(df, x=value, y='Actual', title=f'Range of Energy Demand by {label}',
                   color_discrete_sequence=['rgb(95, 70, 144)'])
     fig1.update_layout(title=dict(
-        font_size=20, x=0.55),
+        font_size=20, x=0.5),
         yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
         xaxis=dict(tickfont_size=13, title=label, title_font_size=20),
         margin=dict(t=33, b=20, r=20),
@@ -236,7 +254,7 @@ def update_week(date_enter):
     fig4 = px.line(data_frame=tx2, x=tx2.index, y=['Actual', 'Prediction'], title='One Week of Data',
                    color_discrete_map={"Actual": 'rgb(29, 105, 150)', "Prediction": 'rgb(204, 80, 62)'})
     fig4.update_layout(title=dict(
-        font_size=20, x=0.45),
+        font_size=20, x=0.5),
         yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts Hours', title_font_size=15),
         xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
         margin=dict(t=38, b=20),

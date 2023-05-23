@@ -5,6 +5,8 @@ from flask_caching import Cache
 import plotly.io as pio
 import pymssql
 pio.templates.default = "plotly_white"
+import warnings
+warnings.filterwarnings('ignore')
 
 app = dash.Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.YETI])
 server = app.server
@@ -13,7 +15,6 @@ cache = Cache(app.server, config={
     'CACHE_DIR': 'cache'
 })
 
-timeout = 20
 sidebar = dbc.Nav(
             [
                 dbc.NavLink(
@@ -28,14 +29,15 @@ sidebar = dbc.Nav(
             horizontal=True,
             pills=True,
             className="bg-light",
-            justified='center'
+            justified='around'
 )
 
 app.layout = dbc.Container([
     dbc.Row([
         dbc.Col(html.Div("Energy Demand",
-                         style={'fontSize':40, 'textAlign':'center'}),width=12)
-    ],justify='left'),
+                         style={'fontSize':40, 'textAlign':'center'}),
+                xs=12, sm=12, md=8, lg=8, xl=8, xxl=8)
+    ],justify='around'),
 
     html.Hr(),
 
@@ -44,8 +46,8 @@ app.layout = dbc.Container([
             dbc.Col(
                 [
                     sidebar,
-                ], width={'size': 6, 'offset': 3},),
-        ]
+                ],xs=12, sm=12, md=10, lg=10, xl=10, xxl=10),
+        ], justify='around'
     ),
     html.Br(),
     html.Br(),
@@ -54,7 +56,7 @@ app.layout = dbc.Container([
             dbc.Col(
                 [
                     dash.page_container
-                ], xs=8, sm=8, md=10, lg=10, xl=10, xxl=10)
+                ], xs=8, sm=8, md=10, lg=11, xl=11, xxl=11)
         ]
     )
 ], fluid=True)
