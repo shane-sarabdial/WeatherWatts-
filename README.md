@@ -7,11 +7,12 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Data Sources](#Data-Sources)
-- [Data Procesing and ETL](#Data-Processing-and-ETL)
-- [Visualizations](#Visualizations)
-- Results
-- Resources??? same as data sources???
+- [Data Sources](#data-sources)
+- [Data Procesing and ETL](#data-processing-and-etl)
+- [Visualizations](#visualizations)
+- [Machine Learning](#machine-learning)
+- [Results](#results)
+- [Resources](#references)
 
 ## Introduction
 - intro
@@ -55,7 +56,7 @@ Static data was pulled from 4 different sources utilizing API, CSV downloads and
 
 - LightGBM
 
-
+## Results
 
 
 ## References
