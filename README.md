@@ -10,6 +10,7 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 - [Data Sources](#data-sources)
 - [Data Procesing and ETL](#data-processing-and-etl)
 - [Visualizations](#visualizations)
+- [Website Features](#website-features)
 - [Machine Learning](#machine-learning)
 - [Results](#results)
 - [Resources](#references)
@@ -51,10 +52,17 @@ Static data was pulled from 4 different sources utilizing API, CSV downloads and
 
 ![California](/Images/california.png)
 
+## Website Features
+
+![range of demand](/Images/GIFS/range%20of%20demand.gif)
+
+![week select](/Images/GIFS/week%20select.gif)
+
+![zoom in data](/Images/GIFS/zoom%20main.gif)
+
 ## Machine Learning
 
-
-- LightGBM
+- [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRegressor.html)
 
 ## Results
 
@@ -62,5 +70,5 @@ Static data was pulled from 4 different sources utilizing API, CSV downloads and
 ## References
 
 - [2021 Texas Winter Storm](https://environmentamerica.org/texas/center/articles/the-texas-freeze-timeline-of-events/)
-- [2017 Florida hurrican Irma](https://www.weather.gov/mfl/hurricaneirma)
+- [2017 Florida hurricane Irma](https://www.weather.gov/mfl/hurricaneirma)
 - [2022 California Heatwave](http://www.caiso.com/Documents/california-iso-posts-analysis-of-september-heat-wave.pdf)
