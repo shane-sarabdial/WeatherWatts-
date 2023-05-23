@@ -62,7 +62,11 @@ def create_scatter():
     return fig2_ny
 
 
+<<<<<<< HEAD
+filename = R'app\Data\NY\model_NY.pkl'
+=======
 filename = './Data/NY/model_NY.pkl'
+>>>>>>> a83aa120f05b69c116b0cfae9c12bf993d051595
 with open(filename, 'rb') as f:
     model = pickle.load(f)
 fi_ny = pd.DataFrame(data=model.feature_importances_,
