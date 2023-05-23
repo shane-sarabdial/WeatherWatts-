@@ -7,6 +7,7 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Project Management Plan](#project-management-plan)
 - [Data Sources](#data-sources)
 - [Data Procesing and ETL](#data-processing-and-etl)
 - [Visualizations](#visualizations)
@@ -30,7 +31,8 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 
 - dash - 2
 
-
+## Project Management Plan
+![pmp](/Images/Trello.png)
 
 ## Data Sources
 - [EIA](https://www.eia.gov/opendata/)
