@@ -47,6 +47,15 @@ Static data was pulled from 4 different sources utilizing API, CSV downloads and
 
 
 ## Visualizations
+![Conditions](/Images/EDA/conditions_barchart.png)
+
+![LineChart](/Images/EDA/energydemand_linechart.png)
+
+![Subplots](/Images/EDA/subplots.png)
+
+![ScatterPlot](/Images/EDA/demand_scatterplot.png)
+
+![ScatterPlot2](/Images/EDA/generation_scatterplot.png)
 
 ![Texas](/Images/Texas.png)
 
