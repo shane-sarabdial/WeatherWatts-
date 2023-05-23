@@ -30,8 +30,13 @@ dgfgdf
 - dash - 2
 
 ## Data Sources
+-[EIA](https://www.eia.gov/opendata/)
+-[Weather](https://www.visualcrossing.com/)
+-[XLE](https://finance.yahoo.com/quote/XLE/history?p=XLE)
+-[Holidays](https://www.timeanddate.com/holidays/us/)
 
 ## Data Processing and ETL
+Static data was pulled from 4 different sources utilizing API, CSV downloads and webscraping. That data was then cleaned and saved in our azure cloud storage container. We used that clean data to create our machine learning model with [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRegressor.html). Every 24 hours, live weather data was pulled using an API to be cleaned, produced and consumed in databricks and Kafka. This process is automated using Azure Data Factory. The consumed data is stored in a SQL database to be inputted in our machine learning model. Visualizations are created using Dash and publicly displayed on our [website](https://weatherwatts.onrender.com/).
 
 ![pipeline](/Images/FinalPipeline.png)
 
