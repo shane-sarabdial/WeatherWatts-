@@ -10,6 +10,7 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 - [Data Sources](#data-sources)
 - [Data Procesing and ETL](#data-processing-and-etl)
 - [Visualizations](#visualizations)
+- [Website Features](#website-features)
 - [Machine Learning](#machine-learning)
 - [Results](#results)
 - [Resources](#references)
@@ -50,6 +51,14 @@ Static data was pulled from 4 different sources utilizing API, CSV downloads and
 ![Florida](/Images/Florida.png)
 
 ![California](/Images/california.png)
+
+## Website Features
+
+![range of demand](/Images/GIFS/range%20of%20demand.gif)
+
+![week select](/Images/GIFS/week%20select.gif)
+
+![zoom in data](/Images/GIFS/zoom%20main.gif)
 
 ## Machine Learning
 
