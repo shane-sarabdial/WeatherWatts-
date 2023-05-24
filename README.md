@@ -89,7 +89,9 @@ For our model we did feature engineering and created the following features
 
 The model was cross validated over 3 time periods and was scored using both RMSE and MAE.
 
+
 ![time_series_split](/Images/ts_split.png)
+
 
 ## Website Features and Dashboard
 
