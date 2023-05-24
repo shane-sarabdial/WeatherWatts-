@@ -67,7 +67,7 @@ We also investigated the state area and demand and found that there was a weak c
 
 ![ScatterPlot2](/Images/EDA/generation_scatterplot.png)
 
-We looked at the energy demand before, after and during a natural disaster. We looked at hurricane Irma, the 2021 Texas winter storm, and heatwaves in Los Angeles in 2022. The image below shows that for Texas, power demand peaked at 70K megawatt hours and continued to decline in the coming days. Texas is on a isloated power grid and was unable to borrow power from other states.
+We looked at the energy demand before, after and during a natural disaster. We looked at hurricane Irma in 2017, the Texas winter storm in 2021, and heatwaves in California in 2022. The image below shows that for Texas, power demand peaked at 70K megawatt hours and continued to decline in the coming days. Texas is on a isloated power grid and was unable to borrow power from other states.
 
 ![Texas](/Images/Texas.png)
 
