@@ -62,7 +62,7 @@ Static data was pulled from 4 different sources utilizing API, CSV downloads and
 
 ![Florida](/Images/Florida.png)
 
-![California](/Images/california.png)
+![California](/Images/updatedcali.png)
 
 ## Website Features
 
