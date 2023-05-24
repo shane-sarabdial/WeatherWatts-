@@ -63,7 +63,8 @@ The scatter plot displays the hourly average energy demand in megawatt hours aga
 
 ![Subplots](/Images/EDA/subplots.png)
 
-We also investigated the state area and demand and found that there was a weak correlation between the two.
+We also investigated the state area and energy generation and found that there was a weak correlation between the two. It is worth noting that energy generation is on par with energy demand in the US. In other words, energy generation and demand are closely related such that if there is a weak correlation between the state area and energy generation there is also a weak correlation between the state area and energy demand. 
+
 
 ![ScatterPlot2](/Images/EDA/generation_scatterplot.png)
 
