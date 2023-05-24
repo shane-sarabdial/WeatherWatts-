@@ -26,7 +26,7 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 
 ---
 
-The demand for energy and its price has surged in the last few years due to political, environmental and geological factors. Today we aim to identify the key features that can impact energy demand in a select few states. Our focus are on the states of California, New York, Texas, and Florida. Read oru techniacl report to get the full details of our project.
+The demand for energy and its price has surged in the last few years due to political, environmental and geological factors. Today we aim to identify the key features that can impact energy demand in a select few states. Our focus are on the states of California, New York, Texas, and Florida. Read our technical report to get the full details of our project.
 
 ## Project Management Plan
 
@@ -47,7 +47,7 @@ The demand for energy and its price has surged in the last few years due to poli
 
 ---
 
-Static data was pulled from 4 different sources utilizing API, CSV downloads and web scraping. That data was then cleaned and saved in our azure cloud storage container. We used that clean data to do exploratory data analysis and create our machine learning model with [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRegressor.html). Every 24 hours, live weather data is pulled using an API to be cleaned, produced, and consumed in data bricks and Kafka. This process is automated using Azure Data Factory. The consumed data is stored in a SQL database to be inputted in our machine learning model. Visualizations are created using Dash and publicly displayed on our [website](https://weatherwatts.onrender.com/).
+Static data was pulled from 4 different sources utilizing API, CSV downloads and web scraping. That data was then cleaned and saved in our azure cloud storage container. We used that clean data to do exploratory data analysis and create our machine learning model with [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRegressor.html). Every 24 hours, live weather data is pulled using an API to be cleaned, produced, and consumed in databricks and Kafka. This process is automated using Azure Data Factory. The consumed data is stored in a SQL database to be inputted in our machine learning model. Visualizations are created using Dash and publicly displayed on our [website](https://weatherwatts.onrender.com/).
 
 ![pipeline](/Images/FinalPipeline.png)
 
@@ -63,11 +63,11 @@ The scatter plot displays the hourly average energy demand in megawatt hours aga
 
 ![Subplots](/Images/EDA/subplots.png)
 
-We also investigate the state area and demand and found that there was a weak correlation between the two.
+We also investigated the state area and demand and found that there was a weak correlation between the two.
 
 ![ScatterPlot2](/Images/EDA/generation_scatterplot.png)
 
-We looked at the energy demand before, after and during a natural disaster. We looked at hirricane Irma, the 2021 Texas winter storm, and heatwaves in Los Angeles in 2022. The image below shows that for Texas power demand peaked at 70K megawatt hours and continued to decline in the days coming. Texas is on a isloated power grid and was unable to borrow power from other states.
+We looked at the energy demand before, after and during a natural disaster. We looked at hurricane Irma, the 2021 Texas winter storm, and heatwaves in Los Angeles in 2022. The image below shows that for Texas, power demand peaked at 70K megawatt hours and continued to decline in the coming days. Texas is on a isloated power grid and was unable to borrow power from other states.
 
 ![Texas](/Images/Texas.png)
 
@@ -77,7 +77,7 @@ To see all our visuals please read the technical report.
 
 ---
 
-We tried several ML models including Linear Regression, XGBoost and Random Forest, but ultimately settled on [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRegressor.html). LGBM gave us better accuracy and faster training times.
+We tried several ML models including Histogram Gradient Boosting Regressor, XGBoost and Random Forest, but ultimately settled on [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRegressor.html). LGBM gave us better accuracy and faster training times.
 For our model we did feature engineering and created the following features
 
 - 3 day lag in energy demand
@@ -114,6 +114,7 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 | NY  | 872  | 638  | 
 | TX  | 3484 | 2606 |
 
+
 ## References
 
 ---
@@ -130,5 +131,5 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 - [U.S. Energy Information Administration - EIA Hurriacne Irma](https://www.eia.gov/todayinenergy/detail.php?id=32992)
 - [2021 Texas power crisis - Wikipedia](https://en.wikipedia.org/wiki/2021_Texas_power_crisis)
 - [pandas 2.0.1 documentation](https://pandas.pydata.org/docs/index.html)
-
+- [scikit-learn 1.2.2 documentation](https://scikit-learn.org/stable/index.html)
 
