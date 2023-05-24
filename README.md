@@ -61,6 +61,8 @@ In this graph we see Texas has the highest energy demand of all states. New York
 
 The scatter plot displays the hourly average energy demand in megawatt hours against the population in Texas, California, Florida and New York. The pie chart represents the percentage population in each state with California having the highest population, followed by Texas, Florida and New York. On the scatter plot, despite California having the highest population, the state’s energy demand is second lowest. Texas on the other hand, has the highest energy demand while being the second most populous state.
 
+![Subplots](/Images/EDA/subplots.png)
+
 
 We also investigated the state area and energy generation and found that there was a weak correlation between the two. It is worth noting that energy generation is on par with energy demand in the US. In other words, energy generation and demand are closely related such that if there is a weak correlation between the state area and energy generation there is also a weak correlation between the state area and energy demand. 
 
