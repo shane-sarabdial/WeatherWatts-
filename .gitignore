@@ -166,3 +166,7 @@ config.py
 /app/Data
 
 /databricks_config
+
+/cache
+
+/cache-directory
