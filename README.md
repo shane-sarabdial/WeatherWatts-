@@ -63,8 +63,7 @@ The scatter plot displays the hourly average energy demand in megawatt hours aga
 
 ![Subplots](/Images/EDA/subplots.png)
 
-We also investigated the state area and energy generation and found that there was a weak correlation between the two. It is worth noting that energy generation is on par with energy demand in the US. In other words, energy generation and demand are closely related such that if there is a weak correlation between the state area and energy generation there is also a weak correlation between the state area and energy demand. 
-
+We also investigated the state area and energy generation and found that there was a weak correlation between the two. It is worth noting that energy generation is on par with energy demand in the US. In other words, energy generation and demand are closely related such that if there is a weak correlation between the state area and energy generation there is also a weak correlation between the state area and energy demand.
 
 ![ScatterPlot2](/Images/EDA/generation_scatterplot.png)
 
@@ -90,9 +89,7 @@ For our model we did feature engineering and created the following features
 
 The model was cross validated over 3 time periods and was scored using both RMSE and MAE.
 
-
 ![time_series_split](/Images/ts_split.png)
-
 
 ## Website Features and Dashboard
 
@@ -117,7 +114,6 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 | NY  | 872  | 638  | 
 | TX  | 3484 | 2606 |
 
-
 ## References
 
 ---
@@ -135,4 +131,5 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 - [2021 Texas power crisis - Wikipedia](https://en.wikipedia.org/wiki/2021_Texas_power_crisis)
 - [pandas 2.0.1 documentation](https://pandas.pydata.org/docs/index.html)
 - [scikit-learn 1.2.2 documentation](https://scikit-learn.org/stable/index.html)
--
+- 
+
