@@ -18,7 +18,7 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 - [Data Procesing and ETL](#data-processing-and-etl)
 - [Visualizations](#visualizations)
 - [Machine Learning](#machine-learning)
-- [Website Features and Dashboard](#website-features)
+- [Website Features and Dashboard](#website-features-and-dashboard)
 - [Results](#results)
 - [Resources](#references)
 
