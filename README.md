@@ -127,7 +127,7 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 - [Census Population Data](https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html)
 - [50 States Ranked By Size, In Square Miles](https://thefactfile.org/50-states-area/)
 - [U.S. Energy Information Administration Energy Source](https://www.eia.gov/state/?sid=US)
-- [U.S. Energy Information Administration - EIA Hurriacne Irma](https://www.eia.gov/todayinenergy/detail.php?id=32992)
+- [U.S. Energy Information Administration - EIA Hurricane Irma](https://www.eia.gov/todayinenergy/detail.php?id=32992)
 - [2021 Texas power crisis - Wikipedia](https://en.wikipedia.org/wiki/2021_Texas_power_crisis)
 - [pandas 2.0.1 documentation](https://pandas.pydata.org/docs/index.html)
 - [scikit-learn 1.2.2 documentation](https://scikit-learn.org/stable/index.html)
