@@ -107,12 +107,13 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 
 ---
 
-| State| RMSE| MAE|
-| --- | ---  | ---  |
-| CA  | 1721 | 1220 |
-| FL  | 2029 | 1464 |
-| NY  | 872  | 638  | 
-| TX  | 3484 | 2606 |
+
+| State | RMSE    | MAE     |
+| ------- | --------- | --------- |
+| CA    | 1721.98 | 1220.40 |
+| FL    | 2029.25 | 1464.15 |
+| NY    | 872.44  | 638.80  |
+| TX    | 3484.53 | 2606.52 |
 
 ## References
 
@@ -131,5 +132,4 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 - [2021 Texas power crisis - Wikipedia](https://en.wikipedia.org/wiki/2021_Texas_power_crisis)
 - [pandas 2.0.1 documentation](https://pandas.pydata.org/docs/index.html)
 - [scikit-learn 1.2.2 documentation](https://scikit-learn.org/stable/index.html)
-- 
-
+-
