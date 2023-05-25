@@ -22,7 +22,8 @@ serverdb = os.environ.get('serverdb')
 dash.register_page(__name__,
                    path='/newyork',  # represents the url text
                    name='New York',  # name of page, commonly used as name of link
-                   title='NewYork'  # epresents the title of browser's tab
+                   title='NewYork',  # epresents the title of browser's tab
+                   order=3
                    )
 app = dash.get_app()
 cache = Cache(app.server, config={
@@ -32,12 +33,12 @@ cache = Cache(app.server, config={
 TIMEOUT = 240
 
 # page 2 data
-df_ny = pd.read_parquet('./Data/NY/NY_df.parquet')
+df_ny = pd.read_parquet('../Data/NY/NY_df.parquet')
 df_ny.rename(columns={'value': 'Actual', 'prediction': 'Prediction'}, inplace=True)
 fig1_ny = px.box(df_ny, x='hour', y='Actual', title='Range of Energy Demand by Hour',
                  color_discrete_sequence=['rgb(95, 70, 144)'])
 fig1_ny.update_layout(title=dict(
-    font_size=20, x=0.55),
+    font_size=20, x=0.5),
     yaxis=dict(tickfont_size=13, title='Energy Demand in MegaWatts', title_font_size=15),
     xaxis=dict(tickfont_size=13, title_font_size=20, title='Hour'),
     margin=dict(t=33, b=20, r=20),
@@ -55,18 +56,14 @@ def create_scatter():
     fig2_ny.update_layout(
         title=dict(font_size=30, x=0.5),
         xaxis=dict(title='Period', title_font_size=25, tickfont_size=15, ),
-        yaxis=dict(title='Demand in Megawatt Hours', title_font_size=25, tickfont_size=15, ),
+        yaxis=dict(title='Demand in Megawatt Hours', title_font_size=20, tickfont_size=15, ),
         margin=dict(t=50, b=50, ),
         template=template
     )
     return fig2_ny
 
 
-<<<<<<< HEAD
-filename = R'app\Data\NY\model_NY.pkl'
-=======
-filename = './Data/NY/model_NY.pkl'
->>>>>>> a83aa120f05b69c116b0cfae9c12bf993d051595
+filename = '../Data/NY/model_NY.pkl'
 with open(filename, 'rb') as f:
     model = pickle.load(f)
 fi_ny = pd.DataFrame(data=model.feature_importances_,
@@ -110,7 +107,7 @@ def get_data_sql():
 
 NY_pred = get_data_sql()
 NY_pred['pred'] = model.predict(NY_pred)
-fig5_ny = px.line(data_frame=NY_pred, x=NY_pred.index, y='pred', title='Predicting Demand in 3 Days',
+fig5_ny = px.line(data_frame=NY_pred, x=NY_pred.index, y='pred', title='Forecasting Demand in 3 Days',
                   color_discrete_sequence=['rgb(225, 124, 5)'])
 fig5_ny.update_layout(title=dict(
     font_size=20, x=0.5),
@@ -118,6 +115,26 @@ fig5_ny.update_layout(title=dict(
     xaxis=dict(tickfont_size=13, title='Period', title_font_size=20),
     margin=dict(t=38, b=20),
     template=template)
+
+sector_ny = pd.read_csv('../Data/NY/New_York_Sector_2020.csv', skiprows=4)
+fig6_ny = px.pie(sector_ny, names='Category', values='Energy Consumption by End-Use Sector',
+                 title='Energy Consumption by End-Use Sector( BTUs), 2020', color_discrete_sequence=px.colors.qualitative.Pastel,
+                 category_orders={'Category':['Transportation','Residential','Industrial','Commercial'],})
+fig6_ny.update_layout(title=dict(
+    font_size=15, x=0.5),
+    yaxis=dict(tickfont_size=13, title_font_size=15),
+    xaxis=dict(tickfont_size=13, title_font_size=20, title='Hour'),
+    margin=dict(t=33, b=25, r=40, l=50),
+)
+source_ny = pd.read_csv('../Data/NY/New_York_Net_Electricity_Generation.csv', skiprows=4)
+fig7_ny = px.bar(source_ny, y='Category', x='New York Net Electricity Generation thousand MWh', orientation='h', color_discrete_sequence=['rgb(237, 173, 8)'],
+              title='Energy Generation by Source, Feb 2023')
+fig7_ny.update_layout(title=dict(
+    font_size=15, x=0.5),
+    yaxis=dict(tickfont_size=13, title_font_size=15),
+    xaxis=dict(tickfont_size=13, title_font_size=20, title='Thousand MegaWatt Hours'),
+    margin=dict(t=33, b=25, r=20, l=30),)
+
 
 layout = html.Div(
     [
@@ -133,7 +150,7 @@ layout = html.Div(
                     638.80 respectively. From the graphs we can see that the model performs well on average. The 
                     temperature and hour of the day  play a major part in the models performance.
                       """),
-                ], xs=12, sm=12, md=12, lg=10, xl=10, xxl=10,
+                ], xs=12, sm=12, md=12, lg=11, xl=11, xxl=11,
             ),
         ], justify='around'),
         html.Br(),
@@ -141,11 +158,37 @@ layout = html.Div(
             dbc.Col(
                 [
                     dcc.Graph(id='prediction_ny',
-                              figure=create_scatter(), style={'width': '82vw', 'height': '60vh'})
-                ], xs=12, sm=12, md=12, lg=10, xl=10, xxl=10,
+                              figure=create_scatter(), style={'width': '88vw', 'height': '40vh'})
+                ], xs=12, sm=12, md=12, lg=11, xl=11, xxl=11,
             ),
         ], justify='around'),
         html.Br(),
+        html.Br(),
+        dbc.Row([
+            dbc.Col(
+                [
+                    dcc.Graph(id='fi_ny',
+                              figure=fig3_ny, style={'width': '38vw', 'height': '42vh'})
+                ],
+                xs=12, sm=12, md=3, lg=3, xl=3, xxl=3,
+
+            ),
+            dbc.Col(
+                [
+                    dcc.Graph(id='sector_ny',
+                              figure=fig7_ny, style={'width': '30vw', 'height': '42vh'})
+                ],
+                # width={'size': 5, 'offset': 1},
+                xs=12, sm=12, md=8, lg=3, xl=3, xxl=3,
+            ),
+            dbc.Col(
+                [
+                    dcc.Graph(id='gen_ny',
+                              figure=fig6_ny, style={'width': '24vw', 'height': '42vh'})
+                ],
+                xs=12, sm=12, md=8, lg=3, xl=3, xxl=3,
+            )
+        ], justify='around'),
         dbc.Row([
             dbc.Col(
                 [
@@ -173,37 +216,33 @@ layout = html.Div(
                                          min_date_allowed=date(2021, 11, 2),
                                          max_date_allowed=date(2023, 4, 29),
                                          style=dict(border='2px solid black', width='68.5%', ), )
-                ], xs=12, sm=12, md=10, lg=3, xl=3, xxl=3, className="text-center",
+                ], xs=12, sm=12, md=10, lg=4, xl=4, xxl=4, className="text-center",
             ),
         ], justify='around', style={'align-items': 'center', 'display': 'flex', 'justify-content': 'center'}),
         dbc.Row([
             dbc.Col(
                 [
                     dcc.Graph(id='freq_box_ny',
-                              figure=fig1_ny, style={'width': '40vw', 'height': '50vh'})
-                ], xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
+                              figure=fig1_ny, style={'width': '40vw', 'height': '40vh'})
+                ],
+                xs=12, sm=12, md=8, lg=4, xl=4, xxl=4,
             ),
             dbc.Col(
                 [
                     dcc.Graph(id='week_ny',
-                              figure=fig4_ny, style={'width': '40vw', 'height': '50vh'})
-                ], xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
+                              figure=fig4_ny, style={'width': '45vw', 'height': '40vh'})
+                ],
+                xs=12, sm=12, md=8, lg=6, xl=6, xxl=6,
             ),
         ], justify='around'),
         html.Br(),
         dbc.Row([
             dbc.Col(
                 [
-                    dcc.Graph(id='fi_ny',
-                              figure=fig3_ny, style={'width': '40vw', 'height': '50vh'})
-                ], xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
-
-            ),
-            dbc.Col(
-                [
                     dcc.Graph(id='future_ny',
-                              figure=fig5_ny, style={'width': '40vw', 'height': '50vh'})
-                ], xs=12, sm=12, md=8, lg=5, xl=5, xxl=5,
+                              figure=fig5_ny, style={'width': '88vw', 'height': '40vh'})
+                ],
+                xs=12, sm=12, md=12, lg=11, xl=11, xxl=11,
             )
         ], justify='around'),
     ])
