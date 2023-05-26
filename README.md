@@ -115,7 +115,7 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 | NY    | 872.44  | 638.80  |
 | TX    | 3484.53 | 2606.52 |
 
-[Technical Report]([/Deliverables/Technical Report.pdf](https://github.com/shane-sarabdial/WeatherWatts-/blob/main/Deliverables/TechnicalReport.pdf))
+[Technical Report](https://github.com/shane-sarabdial/WeatherWatts-/blob/main/Deliverables/TechnicalReport.pdf)
 
 ## References
 
@@ -134,4 +134,3 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 - [2021 Texas power crisis - Wikipedia](https://en.wikipedia.org/wiki/2021_Texas_power_crisis)
 - [pandas 2.0.1 documentation](https://pandas.pydata.org/docs/index.html)
 - [scikit-learn 1.2.2 documentation](https://scikit-learn.org/stable/index.html)
--
