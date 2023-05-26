@@ -115,6 +115,8 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 | NY    | 872.44  | 638.80  |
 | TX    | 3484.53 | 2606.52 |
 
+![Technical Report](/Deliverables/Technical Report.pdf)
+
 ## References
 
 ---
