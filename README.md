@@ -26,7 +26,7 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 
 ---
 
-The demand for energy and its price has surged in the last few years due to political, environmental and geological factors. Today we aim to identify the key features that can impact energy demand in a select few states. Our focus are on the states of California, New York, Texas, and Florida. Read our technical report to get the full details of our project.
+The demand for energy and its price has surged in the last few years due to political, environmental and geological factors. Today we aim to identify the key features that can impact energy demand in a select few states. Our focus are on the states of California, New York, Texas, and Florida. Read our [technical report](https://github.com/shane-sarabdial/WeatherWatts-/blob/main/Deliverables/TechnicalReport.pdf) to get the full details of our project.
 
 ## Project Management Plan
 
@@ -115,7 +115,7 @@ Our website was created using dash and deployed on [render](https://dashboard.re
 | NY    | 872.44  | 638.80  |
 | TX    | 3484.53 | 2606.52 |
 
-![Technical Report](/Deliverables/Technical Report.pdf)
+[Technical Report]([/Deliverables/Technical Report.pdf](https://github.com/shane-sarabdial/WeatherWatts-/blob/main/Deliverables/TechnicalReport.pdf))
 
 ## References
 
