@@ -15,7 +15,7 @@ Edward Oh | Islam Orabi | Shane Sarabdial
 - [Introduction](#introduction)
 - [Project Management Plan](#project-management-plan)
 - [Data Sources](#data-sources)
-- [Data Procesing and ETL](#data-processing-and-etl)
+- [Data Processing and ETL](#data-processing-and-etl)
 - [Visualizations](#visualizations)
 - [Machine Learning](#machine-learning)
 - [Website Features and Dashboard](#website-features-and-dashboard)
